@@ -14,6 +14,9 @@ from app.pages.mobile.three_d import three_d_mobile_page
 from app.pages.not_found import not_found_page
 from app.pages.population import population_page
 from app.pages.three_d import three_d_page
+from app.pages.register import register_page
+from app.pages.login import login_page
+
 
 main_blueprint = Blueprint('main', __name__)
 
@@ -75,6 +78,16 @@ def three_d_population():
         return three_d_population_mobile_page()
     else:
         return three_d_population_page()
+
+
+@main_blueprint.route('/register', methods=["GET", "POST"])
+def register():
+    return register_page()
+
+
+@main_blueprint.route('/login', methods=["GET", "POST"])
+def login():
+    return login_page()
 
 
 @main_blueprint.errorhandler(404)
